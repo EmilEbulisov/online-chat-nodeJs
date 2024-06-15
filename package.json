@@ -1,0 +1,19 @@
+{
+  "name": "online-chat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmilEbulisov/online-chat-nodeJs.git"
+  },
+  "author": "EmilEbulisov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmilEbulisov/online-chat-nodeJs/issues"
+  },
+  "homepage": "https://github.com/EmilEbulisov/online-chat-nodeJs#readme",
+  "description": ""
+}
