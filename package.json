@@ -15,5 +15,9 @@
     "url": "https://github.com/EmilEbulisov/online-chat-nodeJs/issues"
   },
   "homepage": "https://github.com/EmilEbulisov/online-chat-nodeJs#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
 }
