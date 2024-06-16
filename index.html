@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <title>Online Chat</title>
 </head>
 <body>
-    Test
+    <div class="container">
+		<div class="py-5 text-center">
+			<h2>Чат программа</h2>
+			<p class="lead">Укажите ваше имя и начинайте переписку</p>
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<!-- Форма для получения сообщений и имени -->
+				<h3>Форма сообщений</h3>
+				<form id="messForm">
+					<label for="name">Имя</label>
+					<input type="text" name="name" id="name" placeholder="Введите имя" class="form-control">
+					<br>
+					<label for="message">Сообщение</label>
+					<textarea name="message" id="message" class="form-control" placeholder="Введите сообщение"></textarea>
+					<br>
+					<input type="submit" value="Отправить" class="btn btn-danger">
+				</form>
+			</div>
+			<div class="col-6">
+				<h3>Сообщения</h3>
+				<!-- Вывод всех сообщений будет здесь -->
+				<div id="all_mess"></div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
