@@ -1,6 +1,7 @@
 
 body {
      font-family: Arial, sans-serif;
+     background-color: #272822;
 }
 #chat-container { 
     width: 100%; 
@@ -13,6 +14,14 @@ body {
     width: calc(100% - 20px); 
     margin-bottom: 10px; 
     padding: 5px; 
+}
+.h_text {
+font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: #ccc;
+  text-align: center;
 }
 .message { 
     margin-bottom: 5px; 

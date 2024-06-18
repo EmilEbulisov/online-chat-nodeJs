@@ -28,8 +28,12 @@ socket.on('message', (data) => {
 
     if (data.nick.toLowerCase() === 'эмиль' || data.nick.toLowerCase() === 'emil') {
         newMessage.style.backgroundColor = 'lightgreen';
-    } else if (['гуля', 'гулч', 'gulya', 'gulch'].includes(data.nick.toLowerCase())) {
+    }
+     else if (['гуля', 'гулч', 'gulya', 'gulch'].includes(data.nick.toLowerCase())) {
         newMessage.style.backgroundColor = 'violet';
+    }
+    else {
+        newMessage.style.backgroundColor = 'white';
     }
 
     const messageContent = document.createElement('div');
