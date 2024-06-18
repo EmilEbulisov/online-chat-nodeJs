@@ -16,6 +16,7 @@
         .message-box { border: 1px solid #ccc; padding: 5px; margin-bottom: 5px; }
         .smileys { margin-top: 10px; }
         .smiley-btn { width: 30px; height: 30px; border: 1px solid #ccc; margin-right: 5px; text-align: center; line-height: 30px; cursor: pointer; }
+        .new-line-btn { width: 30px; height: 30px; border: 1px solid #ccc; margin-right: 5px; text-align: center; line-height: 30px; cursor: pointer; }
 
         @media (max-width: 600px) {
             #chat-container {
@@ -30,7 +31,10 @@
 <body>
     <div id="chat-container"></div>
     <input type="text" id="nick-input" placeholder="Your nickname" />
-    <input type="text" id="message-input" placeholder="Type your message" />
+    <div class="input-container">
+        <input type="text" id="message-input" placeholder="Type your message" />
+        <button class="new-line-btn" onclick="newLine()">↵</button>
+    </div>
     <button onclick="sendMessage()">Send</button>
     <div class="smileys">
         <button class="smiley-btn" onclick="insertSmiley('❤️')">❤️</button>

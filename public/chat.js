@@ -4,8 +4,8 @@ const nickInput = document.getElementById('nick-input');
 const socket = io();
 
 function sendMessage() {
-    const nick = nickInput.value;
-    const message = messageInput.value;
+    const nick = nickInput.value.trim();
+    const message = messageInput.value.trim();
     const date = new Date().toLocaleString();
 
     if (nick && message) {
@@ -18,9 +18,19 @@ function insertSmiley(smiley) {
     messageInput.value += smiley;
 }
 
+function newLine() {
+    messageInput.value += '\n';
+}
+
 socket.on('message', (data) => {
     const newMessage = document.createElement('div');
     newMessage.className = 'message-box';
+
+    if (data.nick.toLowerCase() === 'эмиль' || data.nick.toLowerCase() === 'emil') {
+        newMessage.style.backgroundColor = 'lightgreen';
+    } else if (['гуля', 'гулч', 'gulya', 'gulch'].includes(data.nick.toLowerCase())) {
+        newMessage.style.backgroundColor = 'violet';
+    }
 
     const messageContent = document.createElement('div');
     messageContent.className = 'message-content';
@@ -29,7 +39,6 @@ socket.on('message', (data) => {
     const messageDate = document.createElement('span');
     messageDate.className = 'message-date';
     messageDate.textContent = data.date;
-    messageDate.style.color = '#888';
 
     const messageActions = document.createElement('div');
     messageActions.className = 'message-actions';
@@ -38,24 +47,29 @@ socket.on('message', (data) => {
     copyBtn.className = 'btn';
     copyBtn.textContent = 'Copy';
     copyBtn.addEventListener('click', () => {
-        // Handle copy action
-        const text = messageContent.textContent;
-        navigator.clipboard.writeText(text).then(() => {
+        navigator.clipboard.writeText(`${data.nick}: ${data.message}`).then(() => {
             console.log('Text copied to clipboard');
         }).catch((error) => {
             console.error('Could not copy text: ', error);
         });
     });
 
+    const replyBtn = document.createElement('button');
+    replyBtn.className = 'btn';
+    replyBtn.textContent = 'Reply';
+    replyBtn.addEventListener('click', () => {
+        messageInput.value = `@${data.nick} on "${data.message}": `;
+    });
+
     const deleteBtn = document.createElement('button');
     deleteBtn.className = 'btn';
     deleteBtn.textContent = 'Delete';
     deleteBtn.addEventListener('click', () => {
-        // Handle delete action
         newMessage.remove();
     });
 
     messageActions.appendChild(copyBtn);
+    messageActions.appendChild(replyBtn);
     messageActions.appendChild(deleteBtn);
 
     newMessage.appendChild(messageContent);
@@ -66,9 +80,9 @@ socket.on('message', (data) => {
     chatContainer.scrollTop = chatContainer.scrollHeight;
 });
 
-// Обработчик нажатия Enter для отправки сообщения
 messageInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && !e.shiftKey) {
         sendMessage();
+        e.preventDefault();
     }
 });
