@@ -45,7 +45,7 @@ socket.on('message', (data) => {
 
     const copyBtn = document.createElement('button');
     copyBtn.className = 'btn';
-    copyBtn.textContent = 'Copy';
+    copyBtn.textContent = 'Копировать';
     copyBtn.addEventListener('click', () => {
         navigator.clipboard.writeText(`${data.nick}: ${data.message}`).then(() => {
             console.log('Text copied to clipboard');
@@ -56,14 +56,14 @@ socket.on('message', (data) => {
 
     const replyBtn = document.createElement('button');
     replyBtn.className = 'btn';
-    replyBtn.textContent = 'Reply';
+    replyBtn.textContent = 'Ответить';
     replyBtn.addEventListener('click', () => {
-        messageInput.value = `@${data.nick} on "${data.message}": `;
+        messageInput.value = `@${data.nick} "${data.message}": `;
     });
 
     const deleteBtn = document.createElement('button');
     deleteBtn.className = 'btn';
-    deleteBtn.textContent = 'Delete';
+    deleteBtn.textContent = 'Удалить';
     deleteBtn.addEventListener('click', () => {
         newMessage.remove();
     });
