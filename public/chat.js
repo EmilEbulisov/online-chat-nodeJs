@@ -14,6 +14,10 @@ function sendMessage() {
     }
 }
 
+function insertSmiley(smiley) {
+    messageInput.value += smiley;
+}
+
 socket.on('message', (data) => {
     const newMessage = document.createElement('div');
     newMessage.className = 'message-box';
