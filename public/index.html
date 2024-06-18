@@ -20,7 +20,6 @@
         <input type="text" id="message-input" placeholder="Напиши тут свое сообщение" />
         <button class="new-line-btn" onclick="newLine()">↵</button>
     </div>
-    <button class="shine-button" onclick="sendMessage()">Отправить</button>
     <div class="smileys">
         <button class="smiley-btn" onclick="insertSmiley('❤️')">❤️</button>
         <button class="smiley-btn" onclick="insertSmiley('💋')">💋</button>
@@ -31,6 +30,9 @@
         <button class="smiley-btn" onclick="insertSmiley('💀')">💀</button>
         <button class="smiley-btn" onclick="insertSmiley('😉')">😉</button>
         <button class="smiley-btn" onclick="insertSmiley('😏')">😏</button>
+    </div>
+    <div class="sh-btn">
+        <button class="shine-button" onclick="sendMessage()">Отправить</button>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
