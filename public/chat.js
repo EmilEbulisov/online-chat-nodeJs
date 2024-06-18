@@ -34,6 +34,19 @@ socket.on('message', (data) => {
     const messageActions = document.createElement('div');
     messageActions.className = 'message-actions';
 
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'btn';
+    copyBtn.textContent = 'Copy';
+    copyBtn.addEventListener('click', () => {
+        // Handle copy action
+        const text = messageContent.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            console.log('Text copied to clipboard');
+        }).catch((error) => {
+            console.error('Could not copy text: ', error);
+        });
+    });
+
     const deleteBtn = document.createElement('button');
     deleteBtn.className = 'btn';
     deleteBtn.textContent = 'Delete';
@@ -42,6 +55,7 @@ socket.on('message', (data) => {
         newMessage.remove();
     });
 
+    messageActions.appendChild(copyBtn);
     messageActions.appendChild(deleteBtn);
 
     newMessage.appendChild(messageContent);
