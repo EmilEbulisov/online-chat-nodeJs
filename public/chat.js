@@ -16,14 +16,7 @@ function sendMessage() {
 
 socket.on('message', (data) => {
     const newMessage = document.createElement('div');
-    newMessage.className = 'message';
-    newMessage.innerHTML = `<strong>${data.nick}</strong>: ${data.message}`;
-
-    const dateElement = document.createElement('span');
-    dateElement.className = 'date';
-    dateElement.textContent = data.date;
-
-    newMessage.appendChild(dateElement);
+    newMessage.innerHTML = `<strong>${data.nick}</strong>: ${data.message} <span class="date">${data.date}</span>`;
     chatContainer.appendChild(newMessage);
     chatContainer.scrollTop = chatContainer.scrollHeight;
 });
