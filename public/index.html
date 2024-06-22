@@ -10,30 +10,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="h_text">
-        <h1>Онлайн чат</h1>
-        <p>Создатель: Эбулисов Эмиль</p>
-    </div>
-    <div id="chat-container"></div>
-    <input type="text" id="nick-input" placeholder="Ваше имя" />
-    <div class="input-container">
-        <input type="text" id="message-input" placeholder="Напиши тут свое сообщение" />
-        <button class="new-line-btn" onclick="newLine()">↵</button>
-    </div>
-    <div class="smileys">
-        <button class="smiley-btn" onclick="insertSmiley('❤️')">❤️</button>
-        <button class="smiley-btn" onclick="insertSmiley('💋')">💋</button>
-        <button class="smiley-btn" onclick="insertSmiley('😂')">😂</button>
-        <button class="smiley-btn" onclick="insertSmiley('😅')">😅</button>
-        <button class="smiley-btn" onclick="insertSmiley('😱')">😱</button>
-        <button class="smiley-btn" onclick="insertSmiley('🥶')">🥶</button>
-        <button class="smiley-btn" onclick="insertSmiley('💀')">💀</button>
-        <button class="smiley-btn" onclick="insertSmiley('😉')">😉</button>
-        <button class="smiley-btn" onclick="insertSmiley('😏')">😏</button>
-    </div>
-    <div class="sh-btn">
-        <button class="shine-button" onclick="sendMessage()">Отправить</button>
-    </div>
+        <div class="chat">
+            <div class="h_text">
+                <h1>Онлайн чат</h1>
+                <p>Создатель: Эбулисов Эмиль</p>
+            </div>
+            <div id="chat-container"></div>
+            <input type="text" id="nick-input" placeholder="Ваше имя" />
+            <div class="input-container">
+                <input type="text" id="message-input" placeholder="Напиши тут свое сообщение" />
+            </div>
+            <div class="smileys">
+                <button class="smiley-btn" onclick="insertSmiley('❤️')">❤️</button>
+                <button class="smiley-btn" onclick="insertSmiley('💋')">💋</button>
+                <button class="smiley-btn" onclick="insertSmiley('😂')">😂</button>
+                <button class="smiley-btn" onclick="insertSmiley('😅')">😅</button>
+                <button class="smiley-btn" onclick="insertSmiley('😱')">😱</button>
+                <button class="smiley-btn" onclick="insertSmiley('🥶')">🥶</button>
+                <button class="smiley-btn" onclick="insertSmiley('💀')">💀</button>
+                <button class="smiley-btn" onclick="insertSmiley('😉')">😉</button>
+                <button class="smiley-btn" onclick="insertSmiley('😏')">😏</button>
+            </div>
+            <div class="sh-btn">
+                <button class="shine-button" onclick="sendMessage()">Отправить</button>
+            </div>
+        </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="chat.js"></script>
