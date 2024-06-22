@@ -44,8 +44,17 @@ font-family: "Montserrat", sans-serif;
     display: flex; 
     align-items: center; 
 }
-.message-content { 
+
+.message-content {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #eeededda;
+    max-width: 70%;
     flex-grow: 1; 
+}
+.message-box.me .message-content {
+    background-color: #579cec;
+    color: #fff;
 }
 .message-date { 
     font-size: 0.8em; 
@@ -55,15 +64,24 @@ font-family: "Montserrat", sans-serif;
 .message-actions { 
     margin-left: 5px; 
 }
+
 .btn { 
     padding: 2px 5px; 
     font-size: 0.8em; 
     cursor: pointer; 
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
 }
 .message-box { 
     border: 1px solid #ccc; 
     padding: 5px; 
     margin-bottom: 5px; 
+    display: flex;
+}
+.message-box.me {
+    justify-content: flex-end;
 }
 .smileys { 
     margin-top: 20px; 
