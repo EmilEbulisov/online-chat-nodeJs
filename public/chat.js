@@ -27,7 +27,7 @@ socket.on('message', (data) => {
     newMessage.className = 'message-box';
 
     if (data.nick.toLowerCase() === 'эмиль' || data.nick.toLowerCase() === 'emil') {
-        newMessage.style.backgroundColor = '#AFEEEE';
+        newMessage.style.backgroundColor = '#77DD77';
     }
      else if (['гуля', 'гулч', 'gulya', 'gulch'].includes(data.nick.toLowerCase())) {
         newMessage.style.backgroundColor = '#D8BFD8';
