@@ -27,13 +27,13 @@ socket.on('message', (data) => {
     newMessage.className = 'message-box';
 
     if (data.nick.toLowerCase() === 'эмиль' || data.nick.toLowerCase() === 'emil') {
-        newMessage.style.backgroundColor = 'black';
+        newMessage.style.backgroundColor = ' #D2B48C';
     }
      else if (['гуля', 'гулч', 'gulya', 'gulch'].includes(data.nick.toLowerCase())) {
         newMessage.style.backgroundColor = '#D8BFD8';
     }
     else {
-        newMessage.style.backgroundColor = 'white';
+        newMessage.style.backgroundColor = '#4b4b4b';
     }
 
     const messageContent = document.createElement('div');
@@ -48,29 +48,29 @@ socket.on('message', (data) => {
     messageActions.className = 'message-actions';
 
     const copyBtn = document.createElement('button');
-    copyBtn.className = 'btn';
-    copyBtn.textContent = 'Копировать';
-    copyBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(`${data.nick}: ${data.message}`).then(() => {
-            console.log('Text copied to clipboard');
-        }).catch((error) => {
-            console.error('Could not copy text: ', error);
+        copyBtn.className = 'btn';
+        copyBtn.innerHTML = '<i class="fa-solid fa-copy"></i>';
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(`${data.nick}: ${data.message}`).then(() => {
+                console.log('Text copied to clipboard');
+            }).catch((error) => {
+                console.error('Could not copy text: ', error);
+            });
         });
-    });
 
-    const replyBtn = document.createElement('button');
-    replyBtn.className = 'btn';
-    replyBtn.textContent = 'Ответить';
-    replyBtn.addEventListener('click', () => {
-        messageInput.value = `@${data.nick} "${data.message}": `;
-    });
+        const replyBtn = document.createElement('button');
+        replyBtn.className = 'btn';
+        replyBtn.innerHTML = '<i class="fa-solid fa-reply"></i>';
+        replyBtn.addEventListener('click', () => {
+            messageInput.value = `@${data.nick} "${data.message}": `;
+        });
 
-    const deleteBtn = document.createElement('button');
-    deleteBtn.className = 'btn';
-    deleteBtn.textContent = 'Удалить';
-    deleteBtn.addEventListener('click', () => {
-        newMessage.remove();
-    });
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'btn';
+        deleteBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
+        deleteBtn.addEventListener('click', () => {
+            newMessage.remove();
+        });
 
     messageActions.appendChild(copyBtn);
     messageActions.appendChild(replyBtn);
